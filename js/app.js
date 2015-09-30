@@ -1,6 +1,5 @@
-angular.module('ngMadLibs', [])
-.filter('capsFirst', function(){
-    return function(input){
-        return input.charAt(0).toUpperCase() + input.slice(1);
-    }
-});
+angular.module('myApp', [])
+    .constant('VERSION', 1.1)
+    .controller('MyCtrl', function(VERSION, $scope){
+        $scope.version = VERSION;
+    });
