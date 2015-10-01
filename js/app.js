@@ -1,6 +1,18 @@
-angular.module('ngMadLibs', [])
-.filter('capsFirst', function(){
-    return function(input){
-        return input.charAt(0).toUpperCase() + input.slice(1);
-    }
-});
+angular.module('multiplicationTable', [])
+    .controller('MultiplicationCtl', function($scope, $attrs){
+        $scope.numberLimit = $attrs.initialLimit || 10;
+
+        $scope.numbers = function(){
+            var numbers = [];
+
+            for(var i = 0; i < $scope.numberLimit; i++){
+                numbers[i] = i + 1;
+            }
+
+            return numbers;
+        };
+
+        $scope.compute = function(a, b){
+            return a * b;
+        };
+    });
