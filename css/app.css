@@ -21,6 +21,7 @@
 
 
 
-.cloze-inputs > li > input {
+.cloze-inputs > li > input,
+.cloze-inputs > li > select {
     width: 100%;
 }

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
-<body ng-init="maleName='Michael'; jobTitle='programmer'; tediousTask = 'Managing Clients'; dirtyTask = 'Creating Quotes'; uselessSkill= 'Client Management'; adjective='awesome'; obnoxiousCelebrity='Mike'; hugeNumber='10000'">
+<body ng-controller="mainController">
     <header>
         <div class="smiley-face">
             <img src="img/mad-lib-happy-face.png" alt="Happy Face" />
@@ -28,6 +28,12 @@
                         <li><input type="text" placeholder="Insert Adjective" ng-model="adjective"></li>
                         <li><input type="text" placeholder="Insert Obnoxious Celebrity" ng-model="obnoxiousCelebrity"></li>
                         <li><input type="text" placeholder="Insert Huge Number" ng-model="hugeNumber"></li>
+                        <li>
+                            <select ng-model="gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -38,11 +44,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <p>{{ maleName | capsFirst }} was a {{ jobTitle | capsFirst }} who loved technology. Although he loved parts of his job, he absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ maleName | capsFirst }} met with his life mentor who told him to
-                        learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so he studied programming instead.</p>
-                    <p>
-                        What a great decision! With his new skills, {{ maleName | capsFirst }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity | capsFirst }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber | number }} times faster.
-                    </p>
+                    <p>{{ maleName | capsFirst }} was a {{ jobTitle | capsFirst }} who loved technology. Although {{ gender === 'Male' ? 'he': 'she' }} loved parts of {{ gender === 'Male' ? 'his': 'her' }} job, {{ gender === 'Male' ? 'he': 'she' }} absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ maleName | capsFirst }} met with {{ gender === 'Male' ? 'his': 'her' }} life mentor who told {{ gender === 'Male' ? 'him': 'her' }} to
+                        learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so {{ gender === 'Male' ? 'he': 'she' }} studied programming instead.</p>
+                    <p>What a great decision! With {{ gender === 'Male' ? 'his': 'her' }} new skills, {{ maleName | capsFirst }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity | capsFirst }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber | number }} times faster.</p>
                 </div>
             </div>
         </div>
