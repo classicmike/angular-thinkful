@@ -1,0 +1,26 @@
+.section {
+    padding: 8rem 0;
+}
+
+.section.section__grey {
+    background-color: #e1e1e1;
+}
+
+.cloze-inputs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cloze-inputs > li {
+    display: block;
+    float: left;
+    padding: 2rem;
+    width: 25%;
+}
+
+
+
+.cloze-inputs > li > input {
+    width: 100%;
+}
