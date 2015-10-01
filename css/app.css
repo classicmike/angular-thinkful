@@ -1,3 +1,30 @@
+img {
+    max-width: 100%;
+    display: inline-block;
+}
+header {
+    display: table;
+    width: 100%;
+}
+
+header .header__inner {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.smiley-face,
+.logo {
+    text-align: center;
+    max-height: 116px;
+}
+
+.smiley-face {
+    max-width: 116px;
+    padding: 1.25rem;
+}
+
+
 .section {
     padding: 8rem 0;
 }
