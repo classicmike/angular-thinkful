@@ -1,17 +1,19 @@
-angular.module('ngMadLibs', [])
+angular.module('ngMadLibs', ['ngMessages'])
     .controller('mainController', function($scope){
-        $scope.maleName='Michael';
-        $scope.jobTitle='programmer';
-        $scope.tediousTask = 'Managing Clients';
-        $scope.dirtyTask = 'Creating Quotes';
-        $scope.uselessSkill= 'Client Management';
-        $scope.adjective='awesome';
-        $scope.obnoxiousCelebrity='Mike';
-        $scope.hugeNumber='10000';
+        $scope.maleName='';
+        $scope.jobTitle='';
+        $scope.tediousTask = '';
+        $scope.dirtyTask = '';
+        $scope.uselessSkill= '';
+        $scope.adjective='';
+        $scope.obnoxiousCelebrity='';
+        $scope.hugeNumber='';
         $scope.gender = 'Male';
+
     })
     .filter('capsFirst', function(){
         return function(input){
+            console.log(input);
             return input.charAt(0).toUpperCase() + input.slice(1);
         }
     });

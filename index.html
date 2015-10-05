@@ -15,32 +15,77 @@
                 <img src="img/ng-mad-libs-logo.png" alt="Happy Face" />
             </div>
     </header>
+    <form name="clozeForm" novalidate>
+
     <div class="section section__grey">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12">
-                    <ul class="cloze-inputs">
-                        <li><input type="text" placeholder="Insert Male Name" ng-model="maleName"></li>
-                        <li><input type="text" placeholder="Insert Job Title" ng-model="jobTitle"></li>
-                        <li><input type="text" placeholder="Insert Tedious Task" ng-model="tediousTask"></li>
-                        <li><input type="text" placeholder="Insert Dirty Task" ng-model="dirtyTask"></li>
-                        <li><input type="text" placeholder="Insert Useless Skill" ng-model="uselessSkill"></li>
-                        <li><input type="text" placeholder="Insert Adjective" ng-model="adjective"></li>
-                        <li><input type="text" placeholder="Insert Obnoxious Celebrity" ng-model="obnoxiousCelebrity"></li>
-                        <li><input type="text" placeholder="Insert Huge Number" ng-model="hugeNumber"></li>
-                        <li>
-                            <select ng-model="gender">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-                        </li>
-                    </ul>
+                <div class="col-xs-12" ng-if="!clozeForm.$submitted || !clozeForm.$valid">
+                        <ul class="cloze-inputs">
+                            <li>
+                                <input type="text" placeholder="Insert Male Name" ng-model="maleName" name="maleName" required>
+                                <p ng-if="clozeForm.$submitted" ng-messages="clozeForm.maleName.$error" class="bg-danger">
+                                    <span ng-message="required">Name is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Insert Job Title" ng-model="jobTitle" name="jobTitle" required>
+                                <p ng-if="clozeForm.$submitted" ng-messages="clozeForm.jobTitle.$error" class="bg-danger">
+                                    <span ng-message="required">Job Title is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Insert Tedious Task" ng-model="tediousTask" name="tediousTask" required>
+                                <p ng-if="clozeForm.$submitted" ng-messages="clozeForm.tediousTask.$error" class="bg-danger">
+                                    <span ng-message="required">Tediuous Task is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Insert Dirty Task" ng-model="dirtyTask" name="dirtyTask" required>
+                                <p ng-if="clozeForm.$submitted" ng-messages="clozeForm.dirtyTask.$error" class="bg-danger">
+                                    <span ng-message="required">Tediuous is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Insert Useless Skill" ng-model="uselessSkill" name="uselessSkill" required>
+                                <p ng-if="clozeForm.$submitted" ng-messages="clozeForm.uselessSkill.$error" class="bg-danger">
+                                    <span ng-message="required">Useless Skill is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Insert Adjective" ng-model="adjective" name="adjective" required>
+                                <p ng-if="clozeForm.$submitted" ng-messages="clozeForm.adjective.$error" class="bg-danger">
+                                    <span ng-message="required">Adjective is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Insert Obnoxious Celebrity" ng-model="obnoxiousCelebrity" name="obnoxiousCelebrity" required>
+                                <p ng-if="clozeForm.$submitted" ng-messages="clozeForm.obnoxiousCelebrity.$error" class="bg-danger">
+                                    <span ng-message="required">Obnoxious Celebrity is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Insert Huge Number" ng-model="hugeNumber" name="hugeNumber" required>
+                                <p ng-if="clozeForm.$submitted" ng-messages="clozeForm.hugeNumber.$error" class="bg-danger">
+                                    <span ng-message="required">Huge Number is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <select ng-model="data.gender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </li>
+                        </ul>
+                        <div class="pull-right clearfix">
+                            <input type="submit" value="Generate My Mad Lib" />
+                        </div>
                 </div>
             </div>
 
         </div>
     </div>
-    <div class="section">
+    <div class="section" ng-if="clozeForm.$submitted && clozeForm.$valid">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -51,7 +96,10 @@
             </div>
         </div>
     </div>
-	<script src="js/angular/angular.min.js" type="text/javascript"></script>
+    </form>
+
+    <script src="js/angular/angular.min.js" type="text/javascript"></script>
+	<script src="js/angular-messages/angular-messages.js" type="text/javascript"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
