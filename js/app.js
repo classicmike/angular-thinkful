@@ -1,6 +1,10 @@
-angular.module('ngMadLibs', [])
-.filter('capsFirst', function(){
-    return function(input){
-        return input.charAt(0).toUpperCase() + input.slice(1);
-    }
-});
+angular.module('ngForms', ['ngMessages'])
+    .controller('FormController', function($scope){
+        $scope.submit = function(){
+            if($scope.myForm.$valid){
+                console.log('The form is valid');
+            } else {
+                console.log('The form is invalid');
+            }
+        }
+    });
