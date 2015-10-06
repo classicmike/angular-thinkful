@@ -1,5 +1,6 @@
 angular.module('ngMadLibs', [])
     .controller('mainController', function($scope){
+        $scope.hideForm = false;
         $scope.maleName='Michael';
         $scope.jobTitle='programmer';
         $scope.tediousTask = 'Managing Clients';
@@ -9,6 +10,9 @@ angular.module('ngMadLibs', [])
         $scope.obnoxiousCelebrity='Mike';
         $scope.hugeNumber='10000';
         $scope.gender = 'Male';
+
+        $scope.performFormSubmit = function(){
+        };
     })
     .filter('capsFirst', function(){
         return function(input){
