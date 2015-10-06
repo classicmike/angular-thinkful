@@ -7,7 +7,7 @@ angular.module('ngMadLibs', ['ngMessages'])
             }
         };
 
-        $scope.resetForm = function(){
+        $scope.resetValues = function(){
             $scope.hideForm = false;
             $scope.maleName='';
             $scope.jobTitle='';
@@ -18,11 +18,25 @@ angular.module('ngMadLibs', ['ngMessages'])
             $scope.obnoxiousCelebrity='';
             $scope.hugeNumber='';
             $scope.gender = 'Male';
+
+            //to reset must reset to untouched
+
         };
 
         $scope.init = function(){
-            $scope.resetForm();
+            $scope.resetValues();
         };
+
+        $scope.cleanForm = function(){
+            $scope.ngMadLibsForm.$setPristine();
+            $scope.ngMadLibsForm.$setUntouched();
+        };
+
+        $scope.resetForm = function(){
+            $scope.resetValues();
+            $scope.cleanForm();
+        };
+
 
         $scope.init();
 
