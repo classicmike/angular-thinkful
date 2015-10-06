@@ -21,14 +21,55 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <ul class="cloze-inputs">
-                            <li><input type="text" placeholder="Insert Male Name" ng-model="maleName"></li>
-                            <li><input type="text" placeholder="Insert Job Title" ng-model="jobTitle"></li>
-                            <li><input type="text" placeholder="Insert Tedious Task" ng-model="tediousTask"></li>
-                            <li><input type="text" placeholder="Insert Dirty Task" ng-model="dirtyTask"></li>
-                            <li><input type="text" placeholder="Insert Useless Skill" ng-model="uselessSkill"></li>
-                            <li><input type="text" placeholder="Insert Adjective" ng-model="adjective"></li>
-                            <li><input type="text" placeholder="Insert Obnoxious Celebrity" ng-model="obnoxiousCelebrity"></li>
-                            <li><input type="text" placeholder="Insert Huge Number" ng-model="hugeNumber"></li>
+                            <li>
+                                <input type="text" placeholder="Insert Male Name" ng-model="maleName" name="maleName" required>
+                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.maleName.$error" class="bg-danger">
+                                    <span ng-message="required">Name is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Insert Job Title" ng-model="jobTitle" name="jobTitle" required>
+                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.jobTitle.$error" class="bg-danger">
+                                    <span ng-message="required">Job Title is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Insert Tedious Task" ng-model="tediousTask" name="tediousTask" required>
+                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.tediousTask.$error" class="bg-danger">
+                                    <span ng-message="required">Tediuous Task is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Insert Dirty Task" ng-model="dirtyTask" name="dirtyTask" required>
+                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.dirtyTask.$error" class="bg-danger">
+                                    <span ng-message="required">Tediuous is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Insert Useless Skill" ng-model="uselessSkill" name="uselessSkill" required>
+                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.uselessSkill.$error" class="bg-danger">
+                                    <span ng-message="required">Useless Skill is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Insert Adjective" ng-model="adjective" name="adjective" required>
+                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.adjective.$error" class="bg-danger">
+                                    <span ng-message="required">Adjective is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Insert Obnoxious Celebrity" ng-model="obnoxiousCelebrity" name="obnoxiousCelebrity" required>
+                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.obnoxiousCelebrity.$error" class="bg-danger">
+                                    <span ng-message="required">Obnoxious Celebrity is required</span>
+                                </p>
+                            </li>
+                            <li>
+                                <input type="number" placeholder="Insert Huge Number" ng-model="hugeNumber" name="hugeNumber" required>
+                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.hugeNumber.$error" class="bg-danger">
+                                    <span ng-message="required">Huge Number is required</span>
+                                    <span ng-message="number">Huge Number must be a number</span>
+                                </p>
+                            </li>
                             <li>
                                 <select ng-model="gender">
                                     <option value="Male">Male</option>
