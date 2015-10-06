@@ -1,17 +1,49 @@
 angular.module('waitStaffCalculator', ['ngMessages'])
     .controller('mainController', function($scope){
 
-        $scope.performFormSubmit = function(){
 
+        $scope.performFormSubmit = function(){
+            if($scope.waitStaffCalculatorForm.$valid){
+                //add all of the totals
+                $scope.customerCharges.subTotal = (1 + $scope.meal.tax/100) * $scope.meal.baseMealPrice;
+                $scope.customerCharges.tip = $scope.customerCharges.subTotal * ($scope.meal.tip/100);
+                $scope.customerCharges.total = $scope.customerCharges.subTotal + $scope.customerCharges.tip;
+
+                $scope.earnings.mealCount++;
+                $scope.earnings.tipTotal += $scope.customerCharges.tip;
+                $scope.earnings.total += $scope.customerCharges.total;
+
+            }
         };
 
         $scope.resetForm = function(){
-
+            $scope.init();
         };
 
         $scope.init = function(){
+            $scope.meal = {
+                baseMealPrice: 10,
+                tax: 10,
+                tip: 20
+            };
 
+            //customer charges
+            $scope.customerCharges = {
+                subTotal: 0.00,
+                tip: 0.00,
+                total: 0.00
+            };
+
+            //earnings
+            $scope.earnings = {
+                tipTotal: 0.00,
+                mealCount: 0,
+                total: 0.00
+            };
         };
+
+        $scope.init();
+
 
 
 

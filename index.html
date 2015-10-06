@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body ng-controller="mainController">
-    <form name="ngMadLibsForm" novalidate class="form-horizontal" ng-submit="performFormSubmit()">
+    <form name="waitStaffCalculatorForm" novalidate class="form-horizontal" ng-submit="performFormSubmit()">
         <div class="container">
             <div class="row">
                 <header class="col-sm-12">
@@ -32,19 +32,37 @@
                                             <div class="form-group">
                                                 <label for="baseMealPrice" class="col-md-6 control-label">Base Meal Price: $</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" class="form-control" id="baseMealPrice" ng-model="meal.baseMealPrice" placeholder="Enter Price">
+                                                    <input type="text" class="form-control" id="baseMealPrice" name="baseMealPrice" ng-model="meal.baseMealPrice" placeholder="Enter Price" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/">
+                                                    <div>
+                                                        <p ng-if="waitStaffCalculatorForm.$submitted" ng-messages="waitStaffCalculatorForm.baseMealPrice.$error">
+                                                            <span class="error" ng-message="required">Best Meal Price is required</span>
+                                                            <span class="error" ng-message="pattern">Best Meal Price must be a number or a decimal</span>
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="tax" class="col-md-6 control-label">Tax Rate: %</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" class="form-control" id="tax" ng-model="meal.tax" placeholder="Enter Percentage">
+                                                    <input type="text" class="form-control" id="tax" name="tax" ng-model="meal.tax" placeholder="Enter Percentage" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/">
+                                                    <div>
+                                                        <p ng-if="waitStaffCalculatorForm.$submitted" ng-messages="waitStaffCalculatorForm.tax.$error">
+                                                            <span class="error" ng-message="required">Tax Rate is required</span>
+                                                            <span class="error" ng-message="pattern">Tax Rate must be a number or a decimal</span>
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="tip" class="col-md-6 control-label">Tip Percentage: %</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" class="form-control" id="tip" ng-model="meal.tip" placeholder="Enter Percentage">
+                                                    <input type="text" class="form-control" id="tip" name="tip" ng-model="meal.tip" placeholder="Enter Percentage" required ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/">
+                                                    <div>
+                                                        <p ng-if="waitStaffCalculatorForm.$submitted" ng-messages="waitStaffCalculatorForm.tip.$error">
+                                                            <span class="error" ng-message="required">Tax Rate is required</span>
+                                                            <span class="error" ng-message="pattern">Tax Rate must be a number or a decimal</span>
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -64,7 +82,11 @@
                                             <h3 class="panel-title">Customer Charges</h3>
                                         </div>
                                         <div class="panel-body">
-                                            Panel content
+                                            <ul>
+                                                <li>Subtotal: <span>{{ customerCharges.subTotal | currency }}</span></li>
+                                                <li>Tip: <span>{{ customerCharges.tip | currency }}</span></li>
+                                                <li>Total: <span>{{ customerCharges.total | currency }}</span></li>
+                                            </ul>
                                         </div>
                                     </section>
                                 </div>
@@ -76,7 +98,11 @@
                                             <h3 class="panel-title">My Earnings Detais</h3>
                                         </div>
                                         <div class="panel-body">
-                                            Panel content
+                                            <ul>
+                                                <li>Tip Total: <span>{{ earnings.tipTotal | currency }}</span></li>
+                                                <li>Meal count: <span>{{ earnings.mealCount }}</span></li>
+                                                <li>Total: <span>{{ earnings.total | currency }}</span></li>
+                                            </ul>
                                         </div>
                                     </section>
                                 </div>
@@ -84,6 +110,11 @@
                         </div>
                     </div>
                 </main>
+            </div>
+            <div class="row">
+                <footer class="col-xs-12 text-right">
+                    <button type="button" class="btn btn-default" ng-click="resetForm()">Reset</button>
+                </footer>
             </div>
         </div>
     </form>
