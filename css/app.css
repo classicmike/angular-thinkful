@@ -1,63 +1,9 @@
-img {
-    max-width: 100%;
-    display: inline-block;
-}
 header {
-    display: table;
-    width: 100%;
+
 }
 
-header .header__inner {
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-}
-
-.smiley-face,
-.logo {
+header .site-title {
     text-align: center;
-    max-height: 116px;
-}
-
-.smiley-face {
-    max-width: 116px;
-    padding: 1.25rem;
-}
-
-
-.section {
-    padding: 8rem 0;
-}
-
-.section.section__grey {
-    background-color: #e1e1e1;
-}
-
-.cloze-inputs {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.cloze-inputs > li {
-    display: block;
-    float: left;
-    padding: 2rem;
-    width: 25%;
-}
-
-.form-contents,
-.hide_form .form-results {
-    display: block
-}
-.form-results,
-.hide_form .form-contents {
-    display: none;
-}
-
-
-
-.cloze-inputs > li > input,
-.cloze-inputs > li > select {
     width: 100%;
+    color: #fff !important;
 }

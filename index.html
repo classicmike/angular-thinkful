@@ -1,106 +1,89 @@
 <!doctype html>
-<html lang="en" ng-app="ngMadLibs">
+<html lang="en" ng-app="waitStaffCalculator">
 <head>
 	<meta charset="UTF-8">
-	<title>Greetings...</title>
+	<title>Waitstaff Calculator</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body ng-controller="mainController">
-    <header>
-            <div class="col-xs-12 col-md-2 smiley-face">
-                <img src="img/mad-lib-happy-face.png" alt="Happy Face" />
+    <form name="ngMadLibsForm" novalidate class="form-horizontal" ng-submit="performFormSubmit()">
+        <div class="container">
+            <div class="row">
+                <header class="col-sm-12">
+                    <nav class="navbar navbar-inverse">
+                        <span class="navbar-brand site-title">Wait Staff Calculator</span>
+                    </nav>
+                </header>
             </div>
-            <div class="col-xs-12 col-md-10 logo">
-                <img src="img/ng-mad-libs-logo.png" alt="Happy Face" />
-            </div>
-    </header>
-    <form name="ngMadLibsForm" novalidate ng-class="{hide_form: hideForm}" ng-submit="performFormSubmit()">
-        <div class="section section__grey form-contents">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <ul class="cloze-inputs">
-                            <li>
-                                <input type="text" placeholder="Insert Male Name" ng-model="maleName" name="maleName" required>
-                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.maleName.$error" class="bg-danger">
-                                    <span ng-message="required">Name is required</span>
-                                </p>
-                            </li>
-                            <li>
-                                <input type="text" placeholder="Insert Job Title" ng-model="jobTitle" name="jobTitle" required>
-                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.jobTitle.$error" class="bg-danger">
-                                    <span ng-message="required">Job Title is required</span>
-                                </p>
-                            </li>
-                            <li>
-                                <input type="text" placeholder="Insert Tedious Task" ng-model="tediousTask" name="tediousTask" required>
-                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.tediousTask.$error" class="bg-danger">
-                                    <span ng-message="required">Tediuous Task is required</span>
-                                </p>
-                            </li>
-                            <li>
-                                <input type="text" placeholder="Insert Dirty Task" ng-model="dirtyTask" name="dirtyTask" required>
-                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.dirtyTask.$error" class="bg-danger">
-                                    <span ng-message="required">Tediuous is required</span>
-                                </p>
-                            </li>
-                            <li>
-                                <input type="text" placeholder="Insert Useless Skill" ng-model="uselessSkill" name="uselessSkill" required>
-                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.uselessSkill.$error" class="bg-danger">
-                                    <span ng-message="required">Useless Skill is required</span>
-                                </p>
-                            </li>
-                            <li>
-                                <input type="text" placeholder="Insert Adjective" ng-model="adjective" name="adjective" required>
-                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.adjective.$error" class="bg-danger">
-                                    <span ng-message="required">Adjective is required</span>
-                                </p>
-                            </li>
-                            <li>
-                                <input type="text" placeholder="Insert Obnoxious Celebrity" ng-model="obnoxiousCelebrity" name="obnoxiousCelebrity" required>
-                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.obnoxiousCelebrity.$error" class="bg-danger">
-                                    <span ng-message="required">Obnoxious Celebrity is required</span>
-                                </p>
-                            </li>
-                            <li>
-                                <input type="number" placeholder="Insert Huge Number" ng-model="hugeNumber" name="hugeNumber" required>
-                                <p ng-if="ngMadLibsForm.$submitted" ng-messages="ngMadLibsForm.hugeNumber.$error" class="bg-danger">
-                                    <span ng-message="required">Huge Number is required</span>
-                                    <span ng-message="number">Huge Number must be a number</span>
-                                </p>
-                            </li>
-                            <li>
-                                <select ng-model="gender">
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="row">
+                <main class="col-sm-12">
                     <div class="row">
-                        <div class="col-xs-12">
-                            <input type="submit" class="pull-right" value="Submit">
+                        <div class="col-xs-12 col-md-6">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <section class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">
+                                                Enter The Meal Details
+                                            </h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <label for="baseMealPrice" class="col-md-6 control-label">Base Meal Price: $</label>
+                                                <div class="col-md-6">
+                                                    <input type="email" class="form-control" id="baseMealPrice" ng-model="meal.baseMealPrice" placeholder="Enter Price">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tax" class="col-md-6 control-label">Tax Rate: %</label>
+                                                <div class="col-md-6">
+                                                    <input type="email" class="form-control" id="tax" ng-model="meal.tax" placeholder="Enter Percentage">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tip" class="col-md-6 control-label">Tip Percentage: %</label>
+                                                <div class="col-md-6">
+                                                    <input type="email" class="form-control" id="tip" ng-model="meal.tip" placeholder="Enter Percentage">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-footer text-center">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="button" class="btn btn-default">Cancel</button>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <section class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Customer Charges</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            Panel content
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <section class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">My Earnings Detais</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            Panel content
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="section form-results">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <p>{{ maleName | capsFirst }} was a {{ jobTitle | capsFirst }} who loved technology. Although {{ gender === 'Male' ? 'he': 'she' }} loved parts of {{ gender === 'Male' ? 'his': 'her' }} job, {{ gender === 'Male' ? 'he': 'she' }} absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ maleName | capsFirst }} met with {{ gender === 'Male' ? 'his': 'her' }} life mentor who told {{ gender === 'Male' ? 'him': 'her' }} to
-                            learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so {{ gender === 'Male' ? 'he': 'she' }} studied programming instead.</p>
-                        <p>What a great decision! With {{ gender === 'Male' ? 'his': 'her' }} new skills, {{ maleName | capsFirst }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity | capsFirst }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber | number }} times faster.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <input type="reset" class="pull-right" value="Reset the Form" ng-click="resetForm()">
-                    </div>
-                </div>
+                </main>
             </div>
         </div>
     </form>
