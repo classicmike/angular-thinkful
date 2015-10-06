@@ -46,6 +46,15 @@ header .header__inner {
     width: 25%;
 }
 
+.form-contents,
+.hide_form .form-results {
+    display: block
+}
+.form-results,
+.hide_form .form-contents {
+    display: none;
+}
+
 
 
 .cloze-inputs > li > input,

@@ -15,8 +15,8 @@
                 <img src="img/ng-mad-libs-logo.png" alt="Happy Face" />
             </div>
     </header>
-    <form name="ngMadLibsForm" novalidate>
-        <div class="section section__grey" ng-if="!hideForm">
+    <form name="ngMadLibsForm" novalidate ng-class="{hide_form: hideForm}" ng-submit="performFormSubmit()">
+        <div class="section section__grey form-contents">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -46,7 +46,7 @@
 
             </div>
         </div>
-        <div class="section" ng-if="hideForm">
+        <div class="section form-results">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -55,10 +55,16 @@
                         <p>What a great decision! With {{ gender === 'Male' ? 'his': 'her' }} new skills, {{ maleName | capsFirst }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity | capsFirst }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber | number }} times faster.</p>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <input type="reset" class="pull-right" value="Reset the Form" ng-click="resetForm()">
+                    </div>
+                </div>
             </div>
         </div>
     </form>
 	<script src="js/angular/angular.min.js" type="text/javascript"></script>
+	<script src="js/angular-messages/angular-messages.min.js" type="text/javascript"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

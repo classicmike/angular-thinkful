@@ -1,18 +1,32 @@
-angular.module('ngMadLibs', [])
+angular.module('ngMadLibs', ['ngMessages'])
     .controller('mainController', function($scope){
-        $scope.hideForm = false;
-        $scope.maleName='Michael';
-        $scope.jobTitle='programmer';
-        $scope.tediousTask = 'Managing Clients';
-        $scope.dirtyTask = 'Creating Quotes';
-        $scope.uselessSkill= 'Client Management';
-        $scope.adjective='awesome';
-        $scope.obnoxiousCelebrity='Mike';
-        $scope.hugeNumber='10000';
-        $scope.gender = 'Male';
 
         $scope.performFormSubmit = function(){
+            if($scope.ngMadLibsForm.$valid){
+                $scope.hideForm = true;
+            }
         };
+
+        $scope.resetForm = function(){
+            $scope.hideForm = false;
+            $scope.maleName='';
+            $scope.jobTitle='';
+            $scope.tediousTask = '';
+            $scope.dirtyTask = '';
+            $scope.uselessSkill= '';
+            $scope.adjective='';
+            $scope.obnoxiousCelebrity='';
+            $scope.hugeNumber='';
+            $scope.gender = 'Male';
+        };
+
+        $scope.init = function(){
+            $scope.resetForm();
+        };
+
+        $scope.init();
+
+
     })
     .filter('capsFirst', function(){
         return function(input){
