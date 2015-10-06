@@ -1,6 +1,6 @@
 angular.module('multiplicationTable', [])
     .controller('MultiplicationCtl', function($scope, $attrs){
-        $scope.numberLimit = $attrs.initialLimit || 10;
+        $scope.numberLimit = $attrs.initialNumberLimit || 10;
 
         $scope.numbers = function(){
             var numbers = [];
