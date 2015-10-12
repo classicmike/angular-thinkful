@@ -1,4 +1,4 @@
-angular.module('ngMadLibs', ['ngMessages'])
+angular.module('ngMadLibs', ['ngMessages', 'ngAnimate'])
     .controller('mainController', function($scope){
 
         $scope.performFormSubmit = function(){
@@ -8,6 +8,7 @@ angular.module('ngMadLibs', ['ngMessages'])
         };
 
         $scope.resetValues = function(){
+            console.log('Resetting values');
             $scope.hideForm = false;
             $scope.maleName='';
             $scope.jobTitle='';
@@ -18,6 +19,8 @@ angular.module('ngMadLibs', ['ngMessages'])
             $scope.obnoxiousCelebrity='';
             $scope.hugeNumber='';
             $scope.gender = 'Male';
+            console.log('Values reset');
+
 
             //to reset must reset to untouched
 

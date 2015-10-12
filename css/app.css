@@ -61,3 +61,18 @@ header .header__inner {
 .cloze-inputs > li > select {
     width: 100%;
 }
+
+.validation-error {
+    transition: all linear 0.5s;
+    overflow: hidden;
+}
+
+.valiation-error.ng-enter,
+.validation-error.ng-leave.ng-leave-active {
+    max-height: 0;
+}
+
+.validation-error.ng-leave,
+.validation-error.ng-enter.ng-enter-active {
+    max-height: 1em;
+}
