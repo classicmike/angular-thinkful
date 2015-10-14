@@ -46,6 +46,7 @@ header .header__inner {
     width: 25%;
 }
 
+/*
 .form-contents,
 .hide_form .form-results {
     display: block
@@ -54,6 +55,7 @@ header .header__inner {
 .hide_form .form-contents {
     display: none;
 }
+*/
 
 
 
@@ -63,16 +65,30 @@ header .header__inner {
 }
 
 .validation-error {
-    transition: all linear 0.5s;
     overflow: hidden;
+    transition: all ease-in 0.2s;
 }
 
-.valiation-error.ng-enter,
+.validation-error.ng-enter,
 .validation-error.ng-leave.ng-leave-active {
-    max-height: 0;
+    opacity: 0;
 }
 
 .validation-error.ng-leave,
 .validation-error.ng-enter.ng-enter-active {
-    max-height: 1em;
+    opacity: 1;
+}
+
+.section-animations.ng-hide-remove, .section-animations.ng-hide-add {
+    transition: all ease-in 0.2s;
+}
+
+.section-animations.ng-hide-add,
+.section-animations.ng-hide-add-active {
+    opacity: 0;
+}
+
+.section-animations.ng-hide-remove,
+.section-animations.ng-hide-remove.ng-hide-remove-active{
+    opacity: 1;
 }
