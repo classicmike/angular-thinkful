@@ -66,7 +66,7 @@ header .header__inner {
 
 .validation-error {
     overflow: hidden;
-    transition: all ease-in 0.2s;
+    transition: all ease-in 5s;
 }
 
 .validation-error.ng-enter,
@@ -80,15 +80,15 @@ header .header__inner {
 }
 
 .section-animations.ng-hide-remove, .section-animations.ng-hide-add {
-    transition: all ease-in 0.2s;
+    transition: all ease-in 0.8s;
 }
 
 .section-animations.ng-hide-add,
-.section-animations.ng-hide-add-active {
+.section-animations.ng-hide-remove.ng-hide-remove-active {
     opacity: 0;
 }
 
 .section-animations.ng-hide-remove,
-.section-animations.ng-hide-remove.ng-hide-remove-active{
+.section-animations.ng-hide-add.ng-hide-add-active {
     opacity: 1;
 }
