@@ -1,45 +1,23 @@
-angular.module('ngMadLibs', ['ngMessages', 'ngAnimate'])
+angular.module('instagramSearcher', ['ngMessages', 'ngAnimate'])
     .controller('mainController', function($scope){
 
-        $scope.performFormSubmit = function(){
-            if($scope.ngMadLibsForm.$valid){
-                $scope.hideForm = true;
+        $scope.initValues = function() {
+            $scope.resultsCount = 0;
+            $scope.searchTerms = '';
+            $scope.enteredTerms = '';
+        };
+
+        $scope.performSearch = function(){
+            if($scope.instagramSearchForm.$valid){
+                $scope.searchTerms = $scope.enteredTerms;
             }
         };
 
-        $scope.resetValues = function(){
-            $scope.hideForm = false;
-            $scope.maleName='';
-            $scope.jobTitle='';
-            $scope.tediousTask = '';
-            $scope.dirtyTask = '';
-            $scope.uselessSkill= '';
-            $scope.adjective='';
-            $scope.obnoxiousCelebrity='';
-            $scope.hugeNumber='';
-            $scope.gender = 'Male';
-
-
-            //to reset must reset to untouched
+        $scope.requestSearchResults = function(){
 
         };
 
-        $scope.init = function(){
-            $scope.resetValues();
-        };
-
-        $scope.cleanForm = function(){
-            $scope.ngMadLibsForm.$setPristine();
-            $scope.ngMadLibsForm.$setUntouched();
-        };
-
-        $scope.resetForm = function(){
-            $scope.resetValues();
-            $scope.cleanForm();
-        };
-
-
-        $scope.init();
+        $scope.initValues();
 
 
     })
