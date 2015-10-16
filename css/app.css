@@ -66,7 +66,7 @@ header .header__inner {
 
 .validation-error {
     overflow: hidden;
-    transition: all ease-in 5s;
+    transition: all ease-in 0.2s;
 }
 
 .validation-error.ng-enter,
@@ -79,16 +79,41 @@ header .header__inner {
     opacity: 1;
 }
 
-.section-animations.ng-hide-remove, .section-animations.ng-hide-add {
-    transition: all ease-in 0.8s;
+.section-animations {
+    transition: all ease-in 0.5s;
 }
 
-.section-animations.ng-hide-add,
-.section-animations.ng-hide-remove.ng-hide-remove-active {
+.form-results.ng-hide-add
+{
+    display: block !important;
+    opacity: 1;
+}
+
+.form-contents.ng-hide-add.ng-hide-add-active {
     opacity: 0;
 }
 
-.section-animations.ng-hide-remove,
-.section-animations.ng-hide-add.ng-hide-add-active {
-    opacity: 1;
+.form-results.ng-hide-remove,
+.form-contents.ng-hide-remove {
+    opacity: 0;
+    transition-delay: 1s;
 }
+
+.form-contents.ng-hide-remove {
+    padding: 0;
+    height: 0;
+}
+
+.form-contents.ng-hide-remove.ng-hide-remove-active {
+    display: block !important;
+    opacity: 0;
+}
+
+
+
+.form-results.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
+    display: block !important;
+}
+
+
