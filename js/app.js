@@ -7,17 +7,18 @@ angular.module('ngMadLibs', ['ngMessages', 'ngAnimate'])
             }
         };
 
-        $scope.resetValues = function(){
+        $scope.fooBar = function(){
             $scope.hideForm = false;
-            $scope.maleName='Michael';
-            $scope.jobTitle='Programmer';
-            $scope.tediousTask = 'Testing and Debugging';
-            $scope.dirtyTask = 'Writing Hacks';
-            $scope.uselessSkill= 'Talking to Clients';
-            $scope.adjective='Awesome';
-            $scope.obnoxiousCelebrity='Addy Osmani';
-            $scope.hugeNumber= 1000;
+            $scope.maleName= 'Mike';
+            $scope.jobTitle= 'Programmer';
+            $scope.tediousTask = 'Coding';
+            $scope.dirtyTask = 'Mfdsfdsf';
+            $scope.uselessSkill= 'Hacking';
+            $scope.adjective='awesome';
+            $scope.obnoxiousCelebrity='Remy Sharp';
+            $scope.hugeNumber= 10000;
             $scope.gender = 'Male';
+
 
 
             //to reset must reset to untouched
@@ -25,7 +26,7 @@ angular.module('ngMadLibs', ['ngMessages', 'ngAnimate'])
         };
 
         $scope.init = function(){
-            $scope.resetValues();
+            $scope.fooBar();
         };
 
         $scope.cleanForm = function(){
@@ -35,7 +36,7 @@ angular.module('ngMadLibs', ['ngMessages', 'ngAnimate'])
 
         $scope.resetForm = function(){
             $scope.cleanForm();
-            $scope.resetValues();
+            $scope.fooBar();
         };
 
 

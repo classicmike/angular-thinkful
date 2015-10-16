@@ -79,10 +79,39 @@ header .header__inner {
     opacity: 1;
 }
 
+.section-container {
+    position: relative;
+}
+
 .section-animations {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.section-animations.ng-hide-remove, .section-animations.ng-hide-add {
     transition: all ease-in 0.5s;
 }
 
+.section-animations.ng-hide-add,
+.section-animations.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
+}
+
+.section-animations.ng-hide-remove,
+.section-animations.ng-hide-add.ng-hide-add-active {
+    opacity: 0;
+}
+
+.section-animations.ng-hide-remove {
+    transition-delay: 0.5s;
+}
+
+
+
+
+/*
 .form-results.ng-hide-add
 {
     display: block !important;
@@ -99,15 +128,6 @@ header .header__inner {
     transition-delay: 1s;
 }
 
-.form-contents.ng-hide-remove {
-    padding: 0;
-    height: 0;
-}
-
-.form-contents.ng-hide-remove.ng-hide-remove-active {
-    display: block !important;
-    opacity: 0;
-}
 
 
 
@@ -117,3 +137,4 @@ header .header__inner {
 }
 
 
+*/
