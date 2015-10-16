@@ -46,7 +46,7 @@
                     <div class="col-xs-12">
                         <ul class="block-grid-xs-1 block-grid-sm-2 block-grid-md-3">
                             <li class="block-grid-item search-results__item" ng-repeat="result in searchResults">
-                                <img src="{{ trustSrc(result.images.standard_resolution.url) }}" alt="result.caption.text" class="img-responsive" />
+                                <img ng-src="{{ trustSrc(result.images.standard_resolution.url) }}" alt="result.caption.text" class="img-responsive" />
                             </li>
                         </ul>
                     </div>
