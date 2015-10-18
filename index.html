@@ -1,62 +1,14 @@
 <!doctype html>
-<html lang="en" ng-app="instagramSearcher">
+<html lang="en" ng-app="OWMApp">
 <head>
     <meta charset="UTF-8">
-    <title>Greetings...</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Open Weather Map App</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body ng-controller="mainController">
-    <div class="container">
-        <div class="row">
-            <header class="col-xs-12 logo text-center">
-                <img src="img/ng-instagram.png" alt="Instagram Searcher Logo" />
-            </header>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <form class="form-search form-horizontal" novalidate ng-submit="performSearch()" name="instagramSearchForm">
-                    <div class="row">
-                        <div class="col-xs-6 form-search__content">
-                            <div class="form-group">
-                                <div class="col-sm-12 col-md-9">
-                                    <input type="text" name="enteredTerms" ng-model="enteredTerms" class="form-control" required />
-                                    <p ng-if="instagramSearchForm.$submitted" ng-messages="instagramSearchForm.enteredTerms.$error" class="bg-danger validation-error">
-                                        <span ng-message="required">Search Terms is required</span>
-                                    </p>
-                                </div>
-                                <div class="col-sm-12 col-md-3">
-                                    <input type="submit" value="Search" class="btn" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 search-results">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <p class="lead text-center" ng-if="searchTerms === ''">You have not entered any search terms. Please enter some search terms before searching</p>
-                        <p class="lead text-center" ng-if="searchTerms !== ''">We found {{ resultsCount }} result<span ng-if="resultsCount > 1 || resultsCount < 1">s</span> for "{{ searchTerms }}"</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <ul class="block-grid-xs-1 block-grid-sm-2 block-grid-md-3">
-                            <li class="block-grid-item search-results__item" ng-repeat="result in searchResults">
-                                <img ng-src="{{ trustSrc(result.images.standard_resolution.url) }}" alt="result.caption.text" class="img-responsive" />
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <script src="lib/angular/angular.js" type="text/javascript"></script>
     <script src="lib/angular-route/angular-route.js" type="text/javascript"></script>
-
-<script src="js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
