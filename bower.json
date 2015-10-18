@@ -1,0 +1,24 @@
+{
+  "name": "angular-thinkful",
+  "version": "0.0.0",
+  "homepage": "https://github.com/classicmike/angular-thinkful",
+  "authors": [
+    "classicmike <michael.tran.tech@gmail.com>"
+  ],
+  "description": "Open Weather App",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "Open",
+    "Weather",
+    "App",
+    "for",
+    "Angular",
+    "Js"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-route": "~1.4.7"
+  }
+}

@@ -1,7 +1,7 @@
-# packaged angular-messages
+# packaged angular-route
 
 This repo is for distribution on `npm` and `bower`. The source for this module is in the
-[main AngularJS repo](https://github.com/angular/angular.js/tree/master/src/ngMessages).
+[main AngularJS repo](https://github.com/angular/angular.js/tree/master/src/ngRoute).
 Please file issues and pull requests against that repo.
 
 ## Install
@@ -11,37 +11,37 @@ You can install this package either with `npm` or with `bower`.
 ### npm
 
 ```shell
-npm install angular-messages
+npm install angular-route
 ```
 
-Then add `ngMessages` as a dependency for your app:
+Then add `ngRoute` as a dependency for your app:
 
 ```javascript
-angular.module('myApp', [require('angular-messages')]);
+angular.module('myApp', [require('angular-route')]);
 ```
 
 ### bower
 
 ```shell
-bower install angular-messages
+bower install angular-route
 ```
 
 Add a `<script>` to your `index.html`:
 
 ```html
-<script src="/bower_components/angular-messages/angular-messages.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
 ```
 
-Then add `ngMessages` as a dependency for your app:
+Then add `ngRoute` as a dependency for your app:
 
 ```javascript
-angular.module('myApp', ['ngMessages']);
+angular.module('myApp', ['ngRoute']);
 ```
 
 ## Documentation
 
 Documentation is available on the
-[AngularJS docs site](http://docs.angularjs.org/api/ngMessages).
+[AngularJS docs site](http://docs.angularjs.org/api/ngRoute).
 
 ## License
 
