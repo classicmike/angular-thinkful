@@ -1,0 +1,15 @@
+{
+  "name": "angular-thinkful",
+  "version": "0.0.0",
+  "homepage": "https://github.com/classicmike/angular-thinkful",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "dependencies": {
+    "angular-route": "~1.4.7",
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.7",
+    "angular-messages": "~1.4.7"
+  }
+}
