@@ -71,12 +71,12 @@ header .header__inner {
 
 .validation-error.ng-enter,
 .validation-error.ng-leave.ng-leave-active {
-    opacity: 0;
+    max-height:0;
 }
 
 .validation-error.ng-leave,
 .validation-error.ng-enter.ng-enter-active {
-    opacity: 1;
+    max-height:1em;
 }
 
 .section-container {
