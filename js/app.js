@@ -1,8 +1,9 @@
 angular.module('OWMApp', ['ngRoute'])
+    .value('owmCities', ['New York', 'Dallas', 'Chicago'])
     .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
         $routeProvider.when('/', {
             templateUrl: 'views/home.html',
-            controller: 'HomeCtrl'
+            controller: 'HomeCtrl as home'
         }).when('/cities/:city', {
             templateUrl: 'views/city.html',
             controller: 'CityCtrl',
@@ -17,26 +18,29 @@ angular.module('OWMApp', ['ngRoute'])
                         return;
                     }
 
+
                     return city;
                 }
             }
         }).when('/error', {
             template: '<p>Error- Page not found</p>'
         })
-
     }])
-    .value('owmCities', ['New York', 'Dallas', 'Chicago'])
     .controller('HomeCtrl', function($scope){
         //insert the controller code here
 
+        this.welcomeMessage = 'Welcome Home';
 
-    }).controller('CityCtrl', ['$scope', 'owmCities', function($scope, city){
+    }).controller('CityCtrl', ['$scope', 'city', function($scope, city){
         //insert the controller code here
-
-
         $scope.city = city;
 
     }])
+    .run(function($rootScope, $location){
+        $rootScope.$on('$routeChangeError', function(){
+            $location.path('/error');
+        });
+    })
     .filter('capsFirst', function(){
         return function(input){
             if(!input){
