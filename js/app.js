@@ -1,4 +1,24 @@
-angular.module('waitStaffCalculator', ['ngMessages'])
+angular.module('waitStaffCalculator', ['ngMessages', 'ngRoute'])
+    .config('$routeProvider', '$locationProvider', function($routeProvider, $locaitonProvider){
+        $routeProvider.when('/', {
+            templateUrl: 'views/home.html',
+            controller: 'HomeController'
+        }).when('/new-meal', {
+            templateUrl: 'views/new-meal.html',
+            controller: 'NewMealController'
+        }).when('/my-earnings', {
+            templateUrl: 'my-earnings',
+            controller: 'MyEarningsController'
+        });
+
+    }).controller('HomeController', function($scope){
+
+    }).controller('NewMealController', function($scope){
+
+    }).controller('MyEarningsController', function(){
+
+    })
+
     .controller('mainController', function($scope){
 
 
