@@ -1,71 +1,59 @@
 angular.module('waitStaffCalculator', ['ngMessages', 'ngRoute'])
-    .config('$routeProvider', '$locationProvider', function($routeProvider, $locaitonProvider){
+    .value('meal', {
+        baseMealPrice: 10,
+        tax: 10,
+        tip: 20
+    }).value('customerCharges', {
+        subTotal: 0.00,
+        tip: 0.00,
+        total: 0.00
+    }).value('earnings', {
+        tipTotal: 0.00,
+        mealCount: 0,
+        total: 0.00
+    })
+    .config(['$routeProvider', function($routeProvider){
         $routeProvider.when('/', {
             templateUrl: 'views/home.html',
-            controller: 'HomeController'
+            controller: 'HomeController as home'
         }).when('/new-meal', {
             templateUrl: 'views/new-meal.html',
-            controller: 'NewMealController'
-        }).when('/my-earnings', {
-            templateUrl: 'my-earnings',
-            controller: 'MyEarningsController'
-        });
-
-    }).controller('HomeController', function($scope){
-
-    }).controller('NewMealController', function($scope){
-
-    }).controller('MyEarningsController', function(){
-
-    })
-
-    .controller('mainController', function($scope){
-
-
-        $scope.performFormSubmit = function(){
-            if($scope.waitStaffCalculatorForm.$valid){
-                //add all of the totals
-                $scope.customerCharges.subTotal = (1 + $scope.meal.tax/100) * $scope.meal.baseMealPrice;
-                $scope.customerCharges.tip = $scope.customerCharges.subTotal * ($scope.meal.tip/100);
-                $scope.customerCharges.total = $scope.customerCharges.subTotal + $scope.customerCharges.tip;
-
-                $scope.earnings.mealCount++;
-                $scope.earnings.tipTotal += $scope.customerCharges.tip;
-                $scope.earnings.total += $scope.customerCharges.total;
+            controller: 'NewMealController as newMeal',
+            resolve: {
 
             }
+        });
+    }])
+    .controller('HomeController', function(){
+        this.welcomeText = 'Hello and welcome to the wait staff calculator. Please enter your figures and the calculator will perform';
+        this.title = 'Homepage';
+    }).controller('NewMealController', function(meal, customerCharges, earnings){
+        this.resetValues = function(){
+            /*meal.baseMealPrice = 10;
+            meal.tip = 10;
+            meal.tax = 20;
+
+            customerCharges.subTotal = 0.00;
+            customerCharges.tip = 0.00;
+            customerCharges.total = 0.00;
+
+            earnings.tipTotal = 0.00;
+            earnings.mealCount = 0;
+            earnings.total = 0.00;*/
+
         };
 
-        $scope.resetForm = function(){
-            $scope.init();
+        this.initValues = function(){
+            this.meal = meal;
+            this.customerCharges = customerCharges;
         };
 
-        $scope.init = function(){
-            $scope.meal = {
-                baseMealPrice: 10,
-                tax: 10,
-                tip: 20
-            };
+        this.performSubmit = function(){
 
-            //customer charges
-            $scope.customerCharges = {
-                subTotal: 0.00,
-                tip: 0.00,
-                total: 0.00
-            };
-
-            //earnings
-            $scope.earnings = {
-                tipTotal: 0.00,
-                mealCount: 0,
-                total: 0.00
-            };
         };
 
-        $scope.init();
 
-
-
+        this.initValues();
 
     })
     .filter('capsFirst', function(){
