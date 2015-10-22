@@ -34,7 +34,10 @@ angular.module('waitStaffCalculator', ['ngMessages', 'ngRoute'])
         }).when('/my-earnings', {
             templateUrl: 'views/my-earnings.html',
             controller: 'MyEarningsController as myEarnings'
-        });
+        }).when('/not-found', {
+            templateUrl: 'views/error.html',
+            controller: 'NotFoundController'
+        }).otherwise('/not-found');
     }])
     .controller('HomeController', function(){
         this.welcomeText = 'Hello and welcome to the wait staff calculator. Please enter your figures and the calculator will perform';
@@ -86,7 +89,6 @@ angular.module('waitStaffCalculator', ['ngMessages', 'ngRoute'])
                 this.customerCharges.tip = this.customerCharges.subTotal * (this.meal.tip/100);
                 this.customerCharges.total = this.customerCharges.subTotal + this.customerCharges.tip;
 
-
                 earnings.mealCount++;
                 earnings.tipTotal += this.customerCharges.tip;
                 earnings.total += this.customerCharges.total;
@@ -103,6 +105,8 @@ angular.module('waitStaffCalculator', ['ngMessages', 'ngRoute'])
 
     }).controller('MyEarningsController', function(earnings){
         this.earnings = earnings;
+    }).controller('NotFoundController', function(){
+
     })
     .filter('capsFirst', function(){
         return function(input){
