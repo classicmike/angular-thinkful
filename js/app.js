@@ -1,4 +1,4 @@
-angular.module('waitStaffCalculator', ['ngMessages', 'ngRoute'])
+angular.module('waitStaffCalculator', ['ngMessages', 'ngRoute', 'ngAnimate'])
     .value('meal', {
         baseMealPrice: 10,
         tax: 10,
@@ -107,6 +107,21 @@ angular.module('waitStaffCalculator', ['ngMessages', 'ngRoute'])
         this.earnings = earnings;
     }).controller('NotFoundController', function(){
 
+    })
+    .run(function($rootScope, $location, $timeout){
+        $rootScope.$on('$routeChangeError', function(){
+            $location.path('/not-found');
+        });
+
+        $rootScope.$on('$routeChangeStart', function(){
+            $rootScope.isLoading = true;
+        });
+
+        $rootScope.$on('$routeChangeSuccess', function(){
+            $timeout(function(){
+                $rootScope.isLoading = false;
+            }, 1000);
+        })
     })
     .filter('capsFirst', function(){
         return function(input){
